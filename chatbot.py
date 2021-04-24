@@ -28,8 +28,10 @@ def main():
 
     # on different commands - answer in Telegram
     dispatcher.add_handler(CommandHandler("add", add))
-    dispatcher.add_handler(CommandHandler("advice", advice_command))
-
+    dispatcher.add_handler(CommandHandler("advice1", advice1_command))
+    dispatcher.add_handler(CommandHandler("advice2", advice2_command))
+    dispatcher.add_handler(CommandHandler("teach", teach_command))
+    
 
     # To start the bot:
     updater.start_polling()
@@ -45,9 +47,17 @@ def echo(update, context):
 
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
-def advice_command(update: Update, context: CallbackContext) -> None:
-    """Send a message when the command /advice is issued."""
+def advice1_command(update: Update, context: CallbackContext) -> None:
+    """Send a message when the command /advice1 is issued."""
     update.message.reply_text('eat more health food, less mcdonald!')
+
+def advice2_command(update: Update, context: CallbackContext) -> None:
+    """Send a message when the command /advice2 is issued."""
+    update.message.reply_text('More fruits and vegetables, less ice-cream!')
+
+def teach_command(update: Update, context: CallbackContext) -> None:
+    """Send a message when the command /advice2 is issued."""
+    update.message.reply_text('Tell us what you have eaten, I will help you to count!')
 
 
 def add(update: Update, context: CallbackContext) -> None:
